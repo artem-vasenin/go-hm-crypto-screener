@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"hm-screener/internal/config"
+)
 
 func main() {
-	fmt.Println("screener")
+	cfg, err := config.Load()
+	if err != nil {
+		panic(err)
+	}
+
+	// test the environment
+	fmt.Print(cfg)
 }
